@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card-container">
+    <!-- STEP 1: THE PROPOSAL -->
+    <div class="step active" id="step-1">
+      <img src="PICTURE/MY PIC.jpeg" alt="My Picture" class="profile-img">
+      <div class="header-tag">NO PRESSURE BUT... SAY YES 🙏</div>
+      <h1 class="question-text">Will you go on a date with me?</h1>
+      <div class="btn-group">
+        <button class="btn yes-btn" onclick="nextStep(2)">Yes 💖</button>
+        <button class="btn no-btn" id="runaway-no">No</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: REJECTION SAFETY NET (If they somehow click No) -->
+    <div class="step" id="step-2">
+      <div class="header-tag">MY HEART RN: 💔💔💔</div>
+      <h1 class="question-text">no way. NO WAY. 😳</h1>
+      <p class="sub-text">I had a whole speech prepared if you said no</p>
+      <p class="love-letter">
+        I know this is a little random, but I really enjoy talking to you.
+        So... I was wondering if you'd like to spend a little time together. ❤️
+      </p>
+      <button class="btn action-btn" onclick="nextStep(3)">okay okay! →</button>
+    </div>
+
+    <!-- STEP 3: DATE, TIME, & PLACE SELECTOR -->
+    <div class="step" id="step-3">
+      <div class="header-tag">LOCK IT IN BESTIE 🔒</div>
+      <h1 class="question-text">So... when are you free?</h1>
+
+      <div class="form-group">
+        <label>Pick a Day 🗓️</label>
+        <input type="date" id="date-input" value="2026-06-25">
+      </div>
+
+      <div class="form-group">
+        <label>What Time? ⏰</label>
+        <select id="time-input">
+          <option value="6:00 PM 🌇 — eating with the grandmas">6:00 PM 🌇 — eating with the grandmas</option>
+          <option value="7:30 PM 🍕 — certified rusz hour">7:30 PM 🍕 — certified rusz hour</option>
+          <option value="9:00 PM 🌙 — late night menace mode" selected>9:00 PM 🌙 — late night menace mode</option>
+        </select>
+      </div>
+
+      <!-- ADDED: Place Preference Dropdown Selection -->
+      <div class="form-group">
+        <label>Place na gusto mo? 📍</label>
+        <select id="place-input">
+          <option value="A cozy café ☕">A cozy café ☕</option>
+          <option value="An aesthetic restaurant 🍽️" selected>An aesthetic restaurant 🍽️</option>
+          <option value="The mall for a stroll 🛍️">The mall for a stroll 🛍️</option>
+          <option value="Arcade & fun activities 👾">Arcade & fun activities 👾</option>
+        </select>
+      </div>
+
+      <button class="btn action-btn" onclick="saveDateTime()">okay next →</button>
+    </div>
+
+
+    <!-- STEP 4: FOOD PREFERENCES -->
+    <div class="step" id="step-4">
+      <div class="header-tag">I'S ALWAYS HUNGRY TBH 🍕</div>
+      <h1 class="question-text">What are we feeling? 😋</h1>
+      <p class="sub-text">(pick as many as you want, no judgement)</p>
+
+      <div class="food-grid">
+        <div class="food-item" onclick="toggleFood(this, 'Pizza')">🍕 <span>Pizza</span></div>
+        <div class="food-item" onclick="toggleFood(this, 'Sushi')">🍣 <span>Sushi</span></div>
+        <div class="food-item" onclick="toggleFood(this, 'Burgers')">🍔 <span>Burgers</span></div>
+        <div class="food-item selected" onclick="toggleFood(this, 'Pasta')">🍝 <span>Pasta</span></div>
+        <div class="food-item" onclick="toggleFood(this, 'Tacos')">🌮 <span>Tacos</span></div>
+        <div class="food-item" onclick="toggleFood(this, 'Ramen')">🍜 <span>Ramen</span></div>
+      </div>
+
+      <button class="btn action-btn" onclick="generateSummary()">this one! →</button>
+    </div>
+
+    <!-- STEP 5: FINAL CONFIRMATION -->
+    <div class="step" id="step-5">
+      <div class="header-tag">WE ACT FRIENDS 🗺️</div>
+      <h1 class="question-text">It's a date! ❤️</h1>
+      <p class="sub-text">cool cool cool. 9:00 PM, pretending I'm not freaking out rn 🔥<br>p.s. text message
+        notification on Rep-it during lunch. for real. no big deal.</p>
+
+      <div class="summary-box">
+        <div class="summary-item">
+          <span class="summary-label">WHEN</span>
+          <strong id="final-date">Thursday, June 25th at 9:00 PM</strong>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">FOOD</span>
+          <strong id="final-food">Italian</strong>
+        </div>
+      </div>
+
+      <button class="btn action-btn copy-btn" onclick="copyDetails()">📋 Copy plan & text me</button>
+      <div class="footer-credit">⚡ Built with Rep-it</div>
+    </div>
+  </div>
+
+  <script src="js.script.js"></script>
+</body>
+
+</html>
